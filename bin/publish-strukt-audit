@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+
+$app_root = realpath(__DIR__."/../../");
+$mod_dir = sprintf("%s/", realpath(__DIR__."/../"));
+
+$cfg = parse_ini_file(sprintf("%s/cfg/app.ini", $app_root));
+
+mkdir(sprintf("%s/app/src/%s/AuditModule/Controller", $app_root, $cfg["app-name"]), 0755, true);
+mkdir(sprintf("%s/app/src/%s/AuditModule/Tests", $app_root, $cfg["app-name"]), 0755, true);
+mkdir(sprintf("%s/database/schema/Schema/Migration", $app_root), 0755, true);
+mkdir(sprintf("%s/lib/App/Middleware", $app_root), 0755, true);
+copy(sprintf("%s/app/src/App/AuditModule/AuditModule.php", $mod_dir), 
+		sprintf("%s/app/src/%s/AuditModule/%sAuditModule.php", $app_root, $cfg["app-name"], 
+																			$cfg["app-name"]));
+copy(sprintf("%s/lib/App/Middleware/Audit.php", $mod_dir), 
+		sprintf("%s/lib/App/Middleware/Audit.php", $app_root));
+copy(sprintf("%s/database/schema/Schema/Migration/VersionAudit.php", $mod_dir), 
+		sprintf("%s/database/schema/Schema/Migration/VersionAudit.php", $app_root));
+
+foreach(glob(sprintf("%s/app/**/**/**/**/**", $mod_dir)) as $file){
+
+	$path = str_replace(array($mod_dir, "/App/"), array("", sprintf("/%s/", $cfg["app-name"])), $file);
+
+	$content = str_replace("__APP__", $cfg["app-name"], file_get_contents($file));
+
+	$file = new SplFileObject($app_root.$path, "w+"); 
+	$file->fwrite($content);
+}

@@ -1,0 +1,18 @@
+{
+    "name": "strukt/audit",
+    "description": "Audit Module",
+    "type": "strukt-module",
+    "require-dev": {
+        "ramsey/uuid": "^4.0@dev"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pitsolu",
+            "email": "pitsolu@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "bin":["bin/publish-strukt-audit"]
+}

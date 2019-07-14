@@ -1,0 +1,80 @@
+<?php
+
+namespace __APP__\AuditModule\Controller;
+
+class Ownership extends \Strukt\Contract\Controller{
+
+	public function newEntry($token, $user_token){
+
+		$em = $this->em();
+
+		$em->getConnection()->beginTransaction();
+
+		try{
+
+			$owner = $this->get("Ownership");
+			$owner->setToken($token);
+			$owner->setUserToken($user_token);
+			$owner->setCreatedAt(new \DateTime());
+			$owner->setStatus("Own");
+
+			$em->persist($owner);
+			$em->flush();
+
+			$em->getConnection()->commit();
+
+			return true;
+		}
+		catch(\Exception $e){
+
+			$em->getConnection()->rollBack();
+
+			$this->core()->get("app.logger")->error($e->getMessage());
+
+			return false;
+		}
+	}
+
+	public function changeEntry($token, $new_user_token){
+
+		$em = $this->em();
+
+		$em->getConnection()->beginTransaction();
+
+		try{
+
+			$owners = $this->da()->repo("Ownership")->findBy(array(
+
+				"token"=>$token,
+				"status"=>"Own"
+			));
+
+			foreach($owners as $owner){
+
+				$owner->setStatus("Disown");
+				$em->persist($owner);
+			}
+
+			$owner = $this->get("Ownership");
+			$owner->setToken($token);
+			$owner->setStatus("Own");
+			$owner->setUserToken($new_user_token);
+			$owner->setCreatedAt(new \DateTime());
+			
+			$em->persist($owner);
+			$em->flush();
+
+			$em->getConnection()->commit();
+
+			return true;
+		}
+		catch(\Exception $e){
+
+			$em->getConnection()->rollBack();
+
+			$this->core()->get("app.logger")->error($e->getMessage());
+
+			return false;
+		}
+	}
+}
