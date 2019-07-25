@@ -19,7 +19,7 @@ composer exec publish-strukt-audit
 ./console generate:loader
 ```
 
-Run migration:
+### Migration
 
 ```sh
 ./console migrate:exec
