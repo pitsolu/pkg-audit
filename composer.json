@@ -13,6 +13,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+
+        "strukt/do":"dev-master"
+    },
     "bin":["bin/publish-strukt-audit"]
 }
