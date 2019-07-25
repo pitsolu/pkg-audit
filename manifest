@@ -1,0 +1,12 @@
+database/schema/Schema/Migration/VersionAudit.php
+app/src/App/AuditModule/AuditModule.php
+app/src/App/AuditModule/Controller/Revision.php
+app/src/App/AuditModule/Controller/Ownership.php
+app/src/App/AuditModule/Controller/Authorship.php
+app/src/App/AuditModule/Controller/Log.php
+app/src/App/AuditModule/Tests/RevisionTest.php
+app/src/App/AuditModule/Tests/AuthorshipTest.php
+app/src/App/AuditModule/Tests/LogTest.php
+app/src/App/AuditModule/Tests/OwnershipTest.php
+README.md
+lib/App/Middleware/Audit.php
