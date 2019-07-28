@@ -16,6 +16,5 @@
     "require": {
 
         "strukt/do":"dev-master"
-    },
-    "bin":["bin/publish-strukt-audit"]
+    }
 }
