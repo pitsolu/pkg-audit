@@ -8,6 +8,5 @@ app/src/App/AuditModule/Tests/RevisionTest.php
 app/src/App/AuditModule/Tests/AuthorshipTest.php
 app/src/App/AuditModule/Tests/LogTest.php
 app/src/App/AuditModule/Tests/OwnershipTest.php
-README.md
 lib/App/Middleware/Audit.php
 index.php
