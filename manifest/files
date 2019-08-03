@@ -9,4 +9,3 @@ app/src/App/AuditModule/Tests/AuthorshipTest.php
 app/src/App/AuditModule/Tests/LogTest.php
 app/src/App/AuditModule/Tests/OwnershipTest.php
 lib/App/Middleware/Audit.php
-index.php
