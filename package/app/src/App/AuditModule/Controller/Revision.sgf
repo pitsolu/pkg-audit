@@ -1,8 +1,8 @@
 <?php
 
-namespace __APP__\AuditModule\Controller;
+namespace {{app}}\AuditModule\Controller;
 
-class Authorship extends \Strukt\Contract\Controller{
+class Revision extends \Strukt\Contract\Controller{
 
 	public function newEntry($token, $user_token){
 
@@ -12,15 +12,13 @@ class Authorship extends \Strukt\Contract\Controller{
 
 		try{
 
-			$author = $this->get("Authorship");
-			$author->setToken($token);
-			$author->setUserToken($user_token);
-			$author->setCreatedAt(new \DateTime());
+			$rev = $this->get("Revision");
+			$rev->setToken($token);
+			$rev->setUserToken($user_token);
+			$rev->setCreatedAt(new \DateTime());
 
-			$em->persist($author);
+			$em->persist($rev);
 			$em->flush();
-
-			$this->get("ad.ctr.Ownership")->newEntry($token, $user_token);
 
 			$em->getConnection()->commit();
 

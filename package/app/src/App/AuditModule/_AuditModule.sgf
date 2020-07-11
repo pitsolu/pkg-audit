@@ -1,0 +1,9 @@
+<?php
+
+namespace {{app}}\AuditModule;
+
+class {{app}}AuditModule extends \Strukt\Contract\Module{
+
+	protected  $alias = "Ad";
+
+}

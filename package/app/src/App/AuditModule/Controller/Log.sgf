@@ -1,6 +1,6 @@
 <?php
 
-namespace __APP__\AuditModule\Controller;
+namespace {{app}}\AuditModule\Controller;
 
 class Log extends \Strukt\Contract\Controller{
 

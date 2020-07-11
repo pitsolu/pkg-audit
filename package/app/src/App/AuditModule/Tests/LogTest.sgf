@@ -1,6 +1,6 @@
 <?php
 
-namespace __APP__\AuditModule\Tests;
+namespace {{app}}\AuditModule\Tests;
 
 use App\Contract\AbstractTestCase;
 use Ramsey\Uuid\Uuid;
