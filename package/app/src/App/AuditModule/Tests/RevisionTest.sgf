@@ -7,6 +7,11 @@ use Ramsey\Uuid\Uuid;
 
 class RevisionTest extends AbstractTestCase{
 
+	public function setUp():void{
+
+		//
+	}
+
 	public function testNewEntry(){
 
 		$token = Uuid::uuid4();

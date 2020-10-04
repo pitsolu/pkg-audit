@@ -7,6 +7,11 @@ use Ramsey\Uuid\Uuid;
 
 class LogTest extends AbstractTestCase{
 
+	public function setUp():void{
+
+		//
+	}
+
 	public function testLogAdd(){
 
 		$token = Uuid::uuid4();
