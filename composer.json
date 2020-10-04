@@ -1,5 +1,5 @@
 {
-    "name": "strukt/audit",
+    "name": "strukt/pkg-audit",
     "description": "Audit Module",
     "type": "strukt-module",
     "require-dev": {
