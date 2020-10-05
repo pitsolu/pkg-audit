@@ -12,7 +12,8 @@
 		"app/src/App/AuditModule/Tests/AuthorshipTest.sgf",
 		"app/src/App/AuditModule/Tests/LogTest.sgf",
 		"app/src/App/AuditModule/Tests/OwnershipTest.sgf",
-		"lib/App/Middleware/Audit.php"
+		"lib/App/Middleware/Audit.php",
+		"lib/App/Package/PkgAudit.php"
 	],
 	"modules":[
 
