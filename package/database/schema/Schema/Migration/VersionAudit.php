@@ -2,12 +2,12 @@
 
 namespace Schema\Migration;
 
-use Doctrine\DBAL\Migrations\AbstractMigration;
+use Doctrine\Migrations\AbstractMigration;
 use Doctrine\DBAL\Schema\Schema;
 
 class VersionAudit extends AbstractMigration{
 
-	public function up(Schema $schema){
+	public function up(Schema $schema):void{
 
 		if($schema->hasTable("authorship"))
             $schema->dropTable("authorship");
@@ -54,7 +54,7 @@ class VersionAudit extends AbstractMigration{
         $log->setPrimaryKey(array('id'));
 	}
 
-	public function down(Schema $schema){
+	public function down(Schema $schema):void{
 
 		$schema->dropTable("authorship");
         $schema->dropTable("ownership");
