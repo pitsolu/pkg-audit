@@ -1,1 +1,4 @@
 php_errors.log
+src/Strukt/Contract
+vendor/
+composer.lock 
