@@ -21,8 +21,8 @@ Install and publish `strukt/pkg-audit`:
 ```sh
 composer require strukt/pkg-books
 console generate:app nameofyourapp
-console publish:package strukt/pkg-do
-console publish:package strukt/pkg-audit
+console publish:package pkg-do
+console publish:package pkg-audit
 console generate:loader
 ```
 
