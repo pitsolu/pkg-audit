@@ -50,7 +50,7 @@ class PkgAudit implements Pkg{
 		return $this->manifest["modules"];
 	}
 
-	public function isInstalled(){
+	public function isPublished(){
 
 		return class_exists(\App\Middleware\Audit::class);		
 	}
